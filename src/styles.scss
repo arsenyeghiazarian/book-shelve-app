@@ -18,3 +18,42 @@ fieldset{border-width:0; padding:0; margin:0;}
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.input-wrapper {
+  height: 70px;
+  box-shadow: 0 3px 6px -3px #656565e8;
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  input {
+    height: 40px;
+    border: 1px solid #b7b7b7;
+    border-radius: 3px;
+    padding: 5px 10px;
+  }
+  .submit-btn {
+    margin-left: 15px;
+    max-width: 150px;
+    width: 100%;
+    background: #018bdc;
+    padding: 11px;
+    border-radius: 4px;
+    color: #fff;
+  }
+}
+
+.conf-btn {
+  height: 17px;
+  width: 17px;
+  margin-left: 10px;
+  img {
+    height: 17px;
+    width: 17px;
+  }
+}
+h1 {
+  text-align: center;
+  font-size: 38px;
+  margin-top: 100px;
+}

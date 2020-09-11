@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 
-import {DataService} from "../../services/data.service";
+import {ApiService} from "../../services/apiService";
 import {UUID} from 'uuid-generator-ts';
 
 
@@ -11,9 +11,24 @@ import {UUID} from 'uuid-generator-ts';
 })
 export class DashboardComponent implements OnInit {
   shelveName: string;
-  constructor( public data: DataService ) { }
+  visibleIndex = -1;
+  data: any;
+  @ViewChild('shelveNameInput') shelveNameInput: ElementRef;
 
-  ngOnInit(): void {  }
+  constructor( public apiService: ApiService ) { }
+
+  ngOnInit(): void {
+    this.data = this.apiService.getData();
+  }
+
+  editShelve(shelve, ind) {
+    if (this.visibleIndex === ind) {
+      this.visibleIndex = -1;
+      this.apiService.postData()
+    } else {
+      this.visibleIndex = ind;
+    }
+  }
 
   addShelve() {
     const uuid = new UUID()
@@ -22,7 +37,11 @@ export class DashboardComponent implements OnInit {
       name: this.shelveName,
       books: []
     }
-    this.data.shelves.push(obj)
+    this.apiService.addShelve(obj)
     this.shelveName = ''
+  }
+
+  deleteShelve(shelveId) {
+    this.apiService.deleteShelve(shelveId)
   }
 }

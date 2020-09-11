@@ -3,17 +3,32 @@
     <input type="text"
            [(ngModel)]="shelveName" placeholder="type shelve name..."
            (keydown.enter)="addShelve()">
-    <button (click)="addShelve()" [disabled]="!shelveName?.length" class="btn">add</button>
+    <button (click)="addShelve()"
+            [disabled]="!shelveName?.length"
+            [ngStyle]="{'opacity': !shelveName?.length ? .5 : 1}"
+            class="submit-btn">
+      Add Shelve
+    </button>
   </div>
   <div class="list-wrapper">
+    <h1 *ngIf="!data['shelves'].length">You Have No Book Shelves</h1>
     <ul>
       <li class="shelve"
-          *ngFor="let shelve of data.shelves"
-          routerLink="/book-shelve/{{shelve.id}}">
-        <span>{{shelve.name}}</span>
-        <button class="delete-btn" (click)="data.deleteShelve(shelve.id)">
-          <img src="./assets/img/trash-solid.svg" alt="trash">
-        </button>
+          *ngFor="let shelve of data['shelves']; let i = index">
+        <input type="text"
+               #shelveNameInput
+               [(ngModel)]="shelve.name"
+               [readonly]="visibleIndex !== i"
+               [class.read-only]="visibleIndex !== i ">
+        <div class="btn-wrapper">
+          <a routerLink="/book-shelve/{{shelve.id}}">Open</a>
+          <button class="conf-btn" (click)="editShelve(shelve, i)">
+            <img src="./assets/img/edit-solid.svg" alt="edit">
+          </button>
+          <button class="conf-btn" (click)="deleteShelve(shelve.id)">
+            <img src="./assets/img/trash-solid.svg" alt="trash">
+          </button>
+        </div>
       </li>
     </ul>
   </div>
