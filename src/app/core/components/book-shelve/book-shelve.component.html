@@ -4,7 +4,7 @@
       <input type="text" name="title" [(ngModel)]="title" placeholder="book title">
       <input type="text" name="name" [(ngModel)]="authorName" placeholder="author name">
       <input type="file" name="file" (change)="onFileChange($event)">
-      <input type="text" name="isbn" [(ngModel)]="isbn" placeholder="ISBN">
+      <input type="number" name="isbn" [(ngModel)]="isbn" placeholder="ISBN">
     </form>
     <button (click)="addBook(bookForm)"
             [disabled]="!isFormValid()"

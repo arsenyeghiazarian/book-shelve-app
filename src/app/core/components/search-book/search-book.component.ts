@@ -49,10 +49,12 @@ export class SearchBookComponent implements OnInit {
   fetchCall(pageNumber) {
     this.spinner.show();
     this.apiService.searchBook(this.searchInput, pageNumber).then(response => {
-      response.json().then(res => {
-        this.dataFromServer = res;
-        this.spinner.hide();
-      })
+      return response.json()
+    }).then(result => {
+      this.dataFromServer = result;
+      this.spinner.hide();
+    }).catch(err => {
+      console.log(err)
     })
   }
 
