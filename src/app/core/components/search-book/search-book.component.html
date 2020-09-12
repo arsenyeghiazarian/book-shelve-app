@@ -1,0 +1,36 @@
+<div>
+  <div class="input-wrapper">
+    <input type="text"
+           name="search-input"
+           [(ngModel)]="searchInput"
+           placeholder="type book name"
+           (input)="onSearch()">
+    <button (click)="goBack()" class="back-btn">Back</button>
+  </div>
+</div>
+<div>
+  <h1 *ngIf="dataFromServer && !dataFromServer['books'].length">There is no any result</h1>
+  <ul *ngIf="dataFromServer">
+    <li class="book-wrapper"
+        *ngFor="let book of dataFromServer['books'] | paginate:
+        { itemsPerPage: 10, currentPage: currentPage, totalItems: dataFromServer['total'] }; let i = index">
+      <div class="info-wrapper">
+        <img src="{{book?.image}}" alt="book">
+        <div class="book-info">
+          <p>{{book?.title}}</p>
+          <p>{{book?.subtitle}}</p>
+          <p>{{book?.isbn13}}</p>
+        </div>
+      </div>
+      <div class="btn-wrapper">
+        <button class="conf-btn" (click)="addBook(book, i)" >
+          <img src="./assets/img/plus-solid.svg" alt="plus">
+        </button>
+      </div>
+    </li>
+    <div class="pagination" *ngIf="dataFromServer && dataFromServer['books'].length">
+      <pagination-controls (pageChange)="changePage($event)"></pagination-controls>
+    </div>
+  </ul>
+</div>
+<ngx-spinner></ngx-spinner>

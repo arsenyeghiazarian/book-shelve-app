@@ -57,3 +57,59 @@ h1 {
   font-size: 38px;
   margin-top: 100px;
 }
+
+ul {
+  display: flex ;
+  flex-wrap: wrap;
+  .book-wrapper {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #0000003d;
+    padding: 5px;
+    border-radius: 4px;
+    margin: 0 auto 20px;
+    width: 45%;
+    position: relative;
+    .info-wrapper {
+      display: flex;
+      img {
+        max-width: 67px;
+        max-height: 100px;
+      }
+      .book-info {
+        padding-left: 10px;
+        p {
+          font-size: 20px;
+          margin-bottom: 5px;
+        }
+      }
+    }
+    .btn-wrapper {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.back-btn {
+  background-color: #ffffff;
+  color: #000;
+  font-size: 16px;
+  padding: 5px 15px;
+  border: 1px solid #0000003d;
+  border-radius: 5px;
+  position: relative;
+  height: 40px;
+  line-height: 30px;
+  margin-left: 40px;
+  &::before {
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    width: 1px;
+    background-color: #0000003d;
+    top: 0;
+    left: -20px;
+  }
+}

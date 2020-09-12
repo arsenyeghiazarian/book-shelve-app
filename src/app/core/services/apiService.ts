@@ -50,4 +50,8 @@ export class ApiService {
   postData() {
     localStorage.setItem('app-data', JSON.stringify(this.data))
   }
+
+  searchBook(query, page) {
+    return fetch(this.proxyURL + 'https://api.itbook.store/1.0/search/' + query + '/' + page)
+  }
 }
