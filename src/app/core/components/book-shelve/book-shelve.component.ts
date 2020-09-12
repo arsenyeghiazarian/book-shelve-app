@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from "@angular/router";
-import {ApiService} from "../../services/apiService";
-import {UUID} from 'uuid-generator-ts';
+
+import { ApiService } from "../../services/apiService";
+
+import { UUID } from 'uuid-generator-ts';
 
 @Component({
   selector: 'app-book-shelve',
@@ -23,7 +25,7 @@ export class BookShelveComponent implements OnInit {
     private route: ActivatedRoute,
     public apiService: ApiService,
     private location: Location
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.data = this.apiService.getData();
@@ -59,6 +61,7 @@ export class BookShelveComponent implements OnInit {
     }
   }
 
+  // check if inputs are empty
   isFormValid() {
     return this.title && this.authorName && this.isbn && this.selectedFile
   }

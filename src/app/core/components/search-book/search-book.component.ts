@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import {Location} from "@angular/common";
-import {ApiService} from "../../services/apiService";
-import {UUID} from "uuid-generator-ts";
-import {ActivatedRoute} from "@angular/router";
-import {NgxSpinnerService} from "ngx-spinner";
+import { Location } from "@angular/common";
+import { ActivatedRoute } from "@angular/router";
+
+import { ApiService } from "../../services/apiService";
+import { NgxSpinnerService } from "ngx-spinner";
+
+import { UUID } from "uuid-generator-ts";
 import * as debounce from 'lodash/debounce'
+
+
 
 @Component({
   selector: 'app-search-book',
@@ -22,27 +26,29 @@ export class SearchBookComponent implements OnInit {
     private location: Location,
     public apiService: ApiService,
     private rout: ActivatedRoute,
-    private spinner: NgxSpinnerService) { }
+    private spinner: NgxSpinnerService) {
+  }
 
   ngOnInit(): void {
     this.apiService.getData().shelves.forEach(el => {
-      if(el.id === this.rout.snapshot.params.id) this.selectedShelve = el
+      if (el.id === this.rout.snapshot.params.id) this.selectedShelve = el
     })
-
   }
+
 
   private debouncedFetchCall = debounce(() => this.fetchCall(1), 1000, {});
 
-
-  onSearch() {
-    if(this.searchInput.length) {
+  // functionality for search input key press
+  onSearchInputChange() {
+    if (this.searchInput.length) {
       this.debouncedFetchCall()
     }
   }
 
+  // api request by typed query
   fetchCall(pageNumber) {
     this.spinner.show();
-    this.apiService.searchBook(this.searchInput, pageNumber).then( response => {
+    this.apiService.searchBook(this.searchInput, pageNumber).then(response => {
       response.json().then(res => {
         this.dataFromServer = res;
         this.spinner.hide();
@@ -50,11 +56,13 @@ export class SearchBookComponent implements OnInit {
     })
   }
 
+  // pagination page change functionality
   changePage(event) {
     this.currentPage = event;
     this.fetchCall(this.searchInput)
   }
 
+  // functionality to add searched book to selected shelve
   addBook(book, i) {
     const obj = {
       id: this.uuid.getDashFreeUUID(),

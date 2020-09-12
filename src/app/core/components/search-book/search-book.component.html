@@ -4,7 +4,7 @@
            name="search-input"
            [(ngModel)]="searchInput"
            placeholder="type book name"
-           (input)="onSearch()">
+           (input)="onSearchInputChange()">
     <button (click)="goBack()" class="back-btn">Back</button>
   </div>
 </div>
@@ -23,7 +23,7 @@
         </div>
       </div>
       <div class="btn-wrapper">
-        <button class="conf-btn" (click)="addBook(book, i)" >
+        <button class="conf-btn" (click)="addBook(book, i)">
           <img src="./assets/img/plus-solid.svg" alt="plus">
         </button>
       </div>

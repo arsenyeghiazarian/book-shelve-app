@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit {
   shelveName: string;
   visibleIndex = -1;
   data: any;
+
   @ViewChild('shelveNameInput') shelveNameInput: ElementRef;
 
   constructor( public apiService: ApiService ) { }
