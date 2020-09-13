@@ -61,7 +61,7 @@ export class SearchBookComponent implements OnInit {
   // pagination page change functionality
   changePage(event) {
     this.currentPage = event;
-    this.fetchCall(this.searchInput)
+    this.fetchCall(event)
   }
 
   // functionality to add searched book to selected shelve

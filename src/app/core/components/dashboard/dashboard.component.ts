@@ -1,7 +1,7 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import {ApiService} from "../../services/apiService";
-import {UUID} from 'uuid-generator-ts';
+import { ApiService } from "../../services/apiService";
+import { UUID } from 'uuid-generator-ts';
 
 
 @Component({
@@ -14,9 +14,8 @@ export class DashboardComponent implements OnInit {
   visibleIndex = -1;
   data: any;
 
-  @ViewChild('shelveNameInput') shelveNameInput: ElementRef;
-
-  constructor( public apiService: ApiService ) { }
+  constructor(public apiService: ApiService) {
+  }
 
   ngOnInit(): void {
     this.data = this.apiService.getData();
@@ -33,7 +32,7 @@ export class DashboardComponent implements OnInit {
 
   addShelve() {
     const uuid = new UUID()
-    const obj:any = {
+    const obj: any = {
       id: uuid.getDashFreeUUID(),
       name: this.shelveName,
       books: []

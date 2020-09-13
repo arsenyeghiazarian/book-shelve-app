@@ -16,7 +16,6 @@
       <li class="shelve"
           *ngFor="let shelve of data['shelves']; let i = index">
         <input type="text"
-               #shelveNameInput
                [(ngModel)]="shelve.name"
                [readonly]="visibleIndex !== i"
                [class.read-only]="visibleIndex !== i ">
