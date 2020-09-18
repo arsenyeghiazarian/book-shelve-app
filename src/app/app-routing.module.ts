@@ -5,7 +5,7 @@ import { DashboardComponent } from "./core/components/dashboard/dashboard.compon
 import {SearchBookComponent} from "./core/components/search-book/search-book.component";
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'book-shelve/:id', component: BookShelveComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'book-shelve/:id/search', component: SearchBookComponent },

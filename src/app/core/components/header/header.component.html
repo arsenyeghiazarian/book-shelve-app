@@ -1,0 +1,49 @@
+<div class="wrapper">
+  <div class="logo">
+    <a href="/">
+      <img src="./assets/img/logo.svg" alt="logo">
+    </a>
+  </div>
+  <div class="input-wrapper">
+    <ngx-spinner
+      bdColor = "rgba(0,0,0,0.7)"
+      size = "medium"
+      color = "#32b77a"
+      type = "ball-clip-rotate"
+      [fullScreen] = "false">
+    </ngx-spinner>
+    <input type="text"
+           class="search-input"
+           name="search-input"
+           [(ngModel)]="searchValue"
+           placeholder="Search books by Title, Author or ISBN"
+           (input)="onSearchInputChange()">
+    <div class="result" *ngIf="searchResult && showResult">
+      <div class="result-wrapper">
+        <div class="close-btn">
+          <button (click)="showResult = false">
+            <img src="../../../../assets/img/close.svg" alt="close">
+          </button>
+        </div>
+        <p *ngIf="!searchResult['books'].length" class="no-result">No result</p>
+        <div *ngIf="searchResult['books'].length">
+          <ul>
+            <li class="result-item"
+                *ngFor="let book of searchResult['books'].slice(0, 4)">
+              <div class="info-wrapper">
+                <img src="{{book['image']}}" alt="book">
+                <div class="book-info">
+                  <p>{{book['title']}}</p>
+                  <p>{{book['subtitle']}}</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <div class="more-btn">
+            <a routerLink="/">See more results</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -28,6 +28,7 @@ export class BookShelveComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+
     this.data = this.apiService.getData();
     this.shelveId = this.route.snapshot.params.id;
     this.selectedShelve = this.apiService.getShelveDetails(this.shelveId)

@@ -1,0 +1,103 @@
+@import "../../../../assets/variables/colors.scss";
+
+.wrapper {
+  height: 70px;
+  box-shadow: 0 3px 6px -3px #656565e8;
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  .logo {
+    width: 40px;
+    margin-right: 30px;
+  }
+  .input-wrapper {
+    position: relative;
+    .search-input {
+      border-radius: 20px;
+      border: 1px solid $light-grey;
+      color: $grey;
+      padding: 5px 10px;
+      font-size: 14px;
+      min-width: 255px;
+      outline: none;
+    }
+    .result {
+      background: #fff;
+      border: 1px solid $light-grey;
+      border-radius: 5px;
+      padding: 5px;
+      position: absolute;
+      width: 100%;
+      margin-top: 5px;
+      .result-wrapper {
+        position: relative;
+        .close-btn {
+          position: absolute;
+          background: #fff;
+          height: 20px;
+          width: 20px;
+          right: -15px;
+          top: -15px;
+          border-radius: 50%;
+          button {
+            width: 20px;
+            height: 20px;
+          }
+        }
+        .result-item {
+          border-bottom: 1px solid $light-grey;
+          padding-bottom: 5px;
+          margin-bottom: 5px;
+          .info-wrapper {
+            display: flex;
+            img {
+              max-height: 40px;
+            }
+            .book-info {
+              p {
+                font-size: 13px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                margin-top: 5px;
+                width: 205px;
+                color: $grey;
+              }
+            }
+          }
+        }
+        .more-btn a {
+          text-align: center;
+          font-size: 13px;
+          width: 100%;
+          display: inline-block;
+          padding: 5px;
+          color: $grey;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+.no-result {
+  color: grey;
+  font-size: 15px;
+  text-align: center;
+  padding: 5px;
+}
+
+::ng-deep {
+  ngx-spinner {
+    .la-ball-clip-rotate.la-2x,
+    .la-ball-clip-rotate.la-2x > div {
+      width: 25px !important;
+      height: 25px !important;
+    }
+    .overlay {
+      border-radius: 25px;
+    }
+  }
+}

@@ -74,10 +74,17 @@ export class SearchBookComponent implements OnInit {
       isbn: book.isbn13
     }
     this.apiService.addBook(this.selectedShelve, obj);
-    this.dataFromServer['books'].splice(i, 1)
   }
 
   goBack() {
     this.location.back()
+  }
+
+  isBookAdded(isbn) {
+    let state = false;
+    this.selectedShelve['books'].forEach(el => {
+      if(el.isbn === isbn) state = true;
+    })
+    return state
   }
 }
