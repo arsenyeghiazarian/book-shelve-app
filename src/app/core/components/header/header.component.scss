@@ -3,8 +3,10 @@
 .wrapper {
   height: 70px;
   box-shadow: 0 3px 6px -3px #656565e8;
-  margin-bottom: 50px;
   display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   align-items: center;
   padding: 0 20px;
   .logo {
@@ -18,9 +20,10 @@
       border: 1px solid $light-grey;
       color: $grey;
       padding: 5px 10px;
-      font-size: 14px;
+      font-size: 13px;
       min-width: 255px;
       outline: none;
+      height: 30px;
     }
     .result {
       background: #fff;
@@ -93,8 +96,8 @@
   ngx-spinner {
     .la-ball-clip-rotate.la-2x,
     .la-ball-clip-rotate.la-2x > div {
-      width: 25px !important;
-      height: 25px !important;
+      width: 20px !important;
+      height: 20px !important;
     }
     .overlay {
       border-radius: 25px;

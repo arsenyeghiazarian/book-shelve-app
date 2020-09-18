@@ -1,0 +1,45 @@
+<nav class="nav-bar">
+  <section class="section">
+    <ul class="section-list">
+      <li class="nav-item">
+        <a href="">
+          <img src="../../../../assets/img/search-solid.svg" alt="search">
+          <span>Discover</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="">
+          <img src="../../../../assets/img/history-solid.svg" alt="history">
+          <span>History</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+  <section class="section">
+    <p class="section-title">Shelves</p>
+    <ul class="section-list">
+      <li class="nav-item"  *ngFor="let shelf of data['shelves']; let i = index">
+        <a href="">
+          <img src="../../../../assets/img/list-alt-regular.svg" alt="list">
+          <span>{{shelf?.name}}</span>
+        </a>
+      </li>
+    </ul>
+    <div class="form-container">
+      <div class="form-wrapper" [class.show]="createBtnActive === false">
+        <input type="text" #shelfInput [(ngModel)]="shelfName" (keydown.enter)="addShelf()">
+        <button class="main-btn green"
+                [disabled]="!shelfName?.length"
+                [ngStyle]="{'opacity': !shelfName?.length ? .5 : 1}"
+                (click)="addShelf()">Add
+        </button>
+      </div>
+      <button class="main-btn green"
+              *ngIf="createBtnActive"
+              (click)="createShelf(shelfInput)">
+        Create a Shelf
+      </button>
+    </div>
+
+  </section>
+</nav>

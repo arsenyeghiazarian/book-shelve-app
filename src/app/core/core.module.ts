@@ -9,23 +9,28 @@ import { BookShelveComponent } from './components/book-shelve/book-shelve.compon
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SearchBookComponent } from './components/search-book/search-book.component';
 import { HeaderComponent } from './components/header/header.component';
+import { SideBarComponent } from './components/side-bar/side-bar.component';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
     BookShelveComponent,
     DashboardComponent,
     SearchBookComponent,
-    HeaderComponent
+    HeaderComponent,
+    SideBarComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
     NgxPaginationModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    BrowserAnimationsModule
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
+    SideBarComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
