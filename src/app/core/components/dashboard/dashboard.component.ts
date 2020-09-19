@@ -9,13 +9,14 @@ import { UUID } from 'uuid-generator-ts';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit  {
   shelveName: string;
   visibleIndex = -1;
   data: any;
 
   constructor(public apiService: ApiService) {
   }
+
 
   ngOnInit(): void {
     this.data = this.apiService.getData();

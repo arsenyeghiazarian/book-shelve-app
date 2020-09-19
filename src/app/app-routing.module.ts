@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BookShelveComponent } from "./core/components/book-shelve/book-shelve.component";
 import { DashboardComponent } from "./core/components/dashboard/dashboard.component";
 import {SearchBookComponent} from "./core/components/search-book/search-book.component";
+import { ShelfDetailsComponent } from "./pages/components/shelf-details/shelf-details.component";
 
 const routes: Routes = [
   // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'book-shelve/:id', component: BookShelveComponent },
+  { path: 'shelf-details/:id', component: ShelfDetailsComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'book-shelve/:id/search', component: SearchBookComponent },
 ];

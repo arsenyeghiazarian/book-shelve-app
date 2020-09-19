@@ -17,9 +17,9 @@
   </section>
   <section class="section">
     <p class="section-title">Shelves</p>
-    <ul class="section-list">
+    <ul class="section-list shelves-list">
       <li class="nav-item"  *ngFor="let shelf of data['shelves']; let i = index">
-        <a href="">
+        <a routerLink="shelf-details/{{shelf?.id}}">
           <img src="../../../../assets/img/list-alt-regular.svg" alt="list">
           <span>{{shelf?.name}}</span>
         </a>

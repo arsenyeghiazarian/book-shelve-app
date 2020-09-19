@@ -18,8 +18,6 @@
       border-bottom: none;
     }
     .section-list {
-      display: flex;
-      flex-direction: column;
       .nav-item {
         font-weight: 500;
         color: $grey;
@@ -47,6 +45,10 @@
           margin-bottom: 0;
         }
       }
+      &.shelves-list {
+        height: 250px;
+        overflow-y: auto;
+      }
     }
     .section-title {
       color: $light-grey;
@@ -63,6 +65,8 @@
   overflow: hidden;
   min-height: 110px;
   margin-top: 15px;
+  border-top: 1px solid $light-grey;
+  padding-top: 10px;
   .form-wrapper {
     transition: all .2s;
     background: #fff;

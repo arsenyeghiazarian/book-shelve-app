@@ -5,7 +5,6 @@ import { FormsModule } from "@angular/forms";
 import { NgxPaginationModule } from "ngx-pagination";
 import { NgxSpinnerModule } from "ngx-spinner";
 
-import { BookShelveComponent } from './components/book-shelve/book-shelve.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SearchBookComponent } from './components/search-book/search-book.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -14,7 +13,6 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
-    BookShelveComponent,
     DashboardComponent,
     SearchBookComponent,
     HeaderComponent,

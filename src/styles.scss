@@ -1,4 +1,5 @@
 @import '~normalize.css';
+@import "assets/variables/colors";
 
 /****** Elad Shechter's RESET *******/
 /*** box sizing border-box for all elements ***/
@@ -15,104 +16,47 @@ p{margin:0;}
 cite {font-style:normal;}
 fieldset{border-width:0; padding:0; margin:0;}
 
-
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-.input-wrapper {
-  //height: 70px;
-  //box-shadow: 0 3px 6px -3px #656565e8;
-  //margin-bottom: 50px;
-  //display: flex;
-  //align-items: center;
-  //padding: 0 20px;
-  input {
-    height: 40px;
-    border: 1px solid #b7b7b7;
-    border-radius: 3px;
-    padding: 5px 10px;
-  }
-  .submit-btn {
-    margin-left: 15px;
-    max-width: 150px;
-    width: 100%;
-    background: #018bdc;
-    padding: 11px;
-    border-radius: 4px;
-    color: #fff;
+.input-style {
+  border-radius: 3px;
+  border: 1px solid $light-grey;
+  padding: 5px 10px;
+  font-size: 15px;
+  height: 30px;
+  outline: none;
+  background-color: #fff;
+  &:focus {
+    box-shadow: 0 0 10px rgba(130, 130, 130, 0.25);
   }
 }
 
-.conf-btn {
-  height: 17px;
-  width: 17px;
-  margin-left: 10px;
-  img {
-    height: 17px;
-    width: 17px;
-  }
-}
-h1 {
-  text-align: center;
-  font-size: 38px;
-  margin-top: 100px;
-}
-
-ul {
-  display: flex ;
-  flex-wrap: wrap;
-  .book-wrapper {
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid #0000003d;
-    padding: 5px;
-    border-radius: 4px;
-    margin: 0 auto 20px;
-    width: 45%;
-    position: relative;
-    .info-wrapper {
-      display: flex;
-      img {
-        max-width: 67px;
-        max-height: 100px;
-      }
-      .book-info {
-        padding-left: 10px;
-        p {
-          font-size: 20px;
-          margin-bottom: 5px;
-        }
-      }
-    }
-    .btn-wrapper {
-      display: flex;
-      align-items: center;
-    }
-  }
-}
-
-.back-btn {
-  background-color: #ffffff;
-  color: #000;
-  font-size: 16px;
-  padding: 5px 15px;
-  border: 1px solid #0000003d;
-  border-radius: 5px;
+.file-input-wrapper {
   position: relative;
-  height: 40px;
-  line-height: 30px;
-  margin-left: 40px;
-  &::before {
-    content: '';
-    display: block;
-    height: 100%;
+  input {
     position: absolute;
-    width: 1px;
-    background-color: #0000003d;
-    top: 0;
-    left: -20px;
+  }
+  label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    span {
+      font-size: 15px;
+      color: $grey;
+      white-space: nowrap;
+      width: 110px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    img {
+      margin-right: 5px;
+      height: auto;
+      width: 15px;
+    }
   }
 }
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -127,11 +71,27 @@ input[type=number] {
 .main-btn {
   font-size: 14px;
   color: #fff;
-  padding: 10px 20px;
+  background: #32b77a;
+  padding: 7px 20px;
   border-radius: 5px;
   font-weight: 500;
   outline: none;
-  &.green {
-    background: #32b77a;
+  transition: background-color 0.2s;
+  &.white {
+    color: #000;
+    background: #fff;
+    border: 1px solid $light-grey
   }
+  &:hover {
+    background: #1f905c;
+  }
+  &.disabled {
+    background: #32b77a;
+    opacity: 0.5;
+  }
+}
+
+.container {
+  margin-left: 250px;
+  position: relative;
 }
