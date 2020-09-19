@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { ShelfDetailsComponent } from './components/shelf-details/shelf-details.component';
 import { FormsModule } from "@angular/forms";
+import { CoreModule } from "../core/core.module";
+import { RouterModule } from "@angular/router";
 
 
 
@@ -10,9 +12,11 @@ import { FormsModule } from "@angular/forms";
   declarations: [
     ShelfDetailsComponent
   ],
-  imports: [
-    CommonModule,
-    FormsModule
-  ]
+    imports: [
+        CommonModule,
+        FormsModule,
+        CoreModule,
+        RouterModule
+    ]
 })
 export class PagesModule { }

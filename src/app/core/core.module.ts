@@ -10,13 +10,15 @@ import { SearchBookComponent } from './components/search-book/search-book.compon
 import { HeaderComponent } from './components/header/header.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { BookCardComponent } from './components/book-card/book-card.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     SearchBookComponent,
     HeaderComponent,
-    SideBarComponent
+    SideBarComponent,
+    BookCardComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +30,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
   ],
   exports: [
     HeaderComponent,
-    SideBarComponent
+    SideBarComponent,
+    BookCardComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

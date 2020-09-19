@@ -43,10 +43,6 @@ export class ShelfDetailsComponent implements OnInit {
     bookForm.reset()
   }
 
-  deleteBook(books, i) {
-    this.apiService.deleteBook(books, i)
-  }
-
   onFileChange(e) {
     this.imageName = e.target.files[0].name
     const reader = new FileReader();
@@ -57,6 +53,7 @@ export class ShelfDetailsComponent implements OnInit {
   }
 
   // check if inputs are empty
+  //TODO: Form validation
   isFormValid() {
     return this.bookTitle && this.authorName && this.isbn && this.attachedImage
   }

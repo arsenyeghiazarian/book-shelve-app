@@ -1,0 +1,15 @@
+<div class="card-container">
+  <div class="info-wrapper">
+    <img src="{{bookDetails['image']}}" alt="book-cover">
+    <div class="book-info">
+      <p class="title">{{bookDetails['title']}}</p>
+      <p class="author-name">{{bookDetails['name']}}</p>
+    </div>
+  </div>
+  <div class="btn-wrapper">
+    <button class="main-btn white" (click)="deleteBook(shelfDetails['books'], index)">
+      <img src="./assets/img/trash-solid.svg" alt="trash">
+      <span>Remove</span>
+    </button>
+  </div>
+</div>

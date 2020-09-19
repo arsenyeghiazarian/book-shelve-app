@@ -19,28 +19,19 @@
       </button>
     </form>
   </div>
-  <div class="content" [ngStyle]="{'padding-top': isFormOpen? '95px' : '25px'}">
+  <div class="content-container" [ngStyle]="{'padding-top': isFormOpen? '95px' : '25px'}">
     <div class="content-header">
       <h1>{{selectedShelf?.name}}</h1>
       <button class="main-btn" (click)="isFormOpen = !isFormOpen">{{!isFormOpen? 'Add Books' : 'Close'}}</button>
     </div>
-    <h3 *ngIf="selectedShelf && !selectedShelf['books'].length">There are no books in this shelf</h3>
-    <ul>
-      <li class="book-wrapper" *ngFor="let book of selectedShelf?.books; let i = index">
-        <div class="info-wrapper">
-          <img src="{{book?.image}}" alt="book">
-          <div class="book-info">
-            <p>{{book?.title}}</p>
-            <p>{{book?.name}}</p>
-            <p>{{book?.isbn}}</p>
-          </div>
-        </div>
-        <div class="btn-wrapper">
-          <button class="conf-btn" (click)="deleteBook(selectedShelf?.books, i)">
-            <img src="./assets/img/trash-solid.svg" alt="trash">
-          </button>
-        </div>
-      </li>
-    </ul>
+    <div class="content">
+      <h3 *ngIf="selectedShelf && !selectedShelf['books'].length">There are no books in this shelf</h3>
+      <app-book-card
+        *ngFor="let book of selectedShelf['books']; let i = index"
+        [bookDetails]="book"
+        [index]="i">
+
+      </app-book-card>
+    </div>
   </div>
 </div>

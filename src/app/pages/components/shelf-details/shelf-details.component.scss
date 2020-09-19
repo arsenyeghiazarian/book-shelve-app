@@ -23,7 +23,7 @@
   }
 }
 
-.content {
+.content-container {
   transition: padding-top .4s;
   padding: 25px 20px;
   .content-header {
@@ -33,11 +33,15 @@
     h1 {
       color: $grey;
       font-size: 25px;
-      font-weight: 500  ;
+      font-weight: 500;
     }
     .main-btn {
       min-width: 108px;
     }
+  }
+  .content {
+    display: flex;
+    padding-top: 50px;
   }
 }
 h3 {
@@ -45,4 +49,5 @@ h3 {
   font-size: 38px;
   color: $grey;
   margin-top: 100px;
+  width: 100%;
 }
