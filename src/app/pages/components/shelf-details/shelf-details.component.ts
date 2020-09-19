@@ -1,6 +1,6 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UUID } from "uuid-generator-ts";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { ApiService } from "../../../core/services/apiService";
 
 @Component({
@@ -9,7 +9,6 @@ import { ApiService } from "../../../core/services/apiService";
   styleUrls: ['./shelf-details.component.scss']
 })
 export class ShelfDetailsComponent implements OnInit {
-  private shelfId: string;
   private attachedImage = null;
   private uuid = new UUID();
   public selectedShelf: any;
@@ -19,16 +18,21 @@ export class ShelfDetailsComponent implements OnInit {
   public data: object;
   public imageName: string;
   public isFormOpen: boolean;
+  public isEditActive = false;
+  public shelfTitle: string;
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     public apiService: ApiService
   ) {}
 
   ngOnInit(): void {
     this.data = this.apiService.getData();
-    this.shelfId = this.route.snapshot.params.id;
-    this.selectedShelf = this.apiService.getShelveDetails(this.shelfId)
+    this.route.params.subscribe(params => {
+      let shelfId = params['id'];
+      this.selectedShelf = this.apiService.getShelveDetails(shelfId);
+    });
   }
 
   addBook(bookForm) {
@@ -50,6 +54,18 @@ export class ShelfDetailsComponent implements OnInit {
     reader.onload = (e) => {
       this.attachedImage = reader.result;
     }
+  }
+
+  editTitle(titleInput) {
+    if(!this.isEditActive) {
+      this.shelfTitle = this.selectedShelf['name'];
+    } else {
+      if(this.selectedShelf['name'] !== this.shelfTitle) {
+        this.apiService.postData()
+      }
+    }
+    this.isEditActive = !this.isEditActive;
+    titleInput.focus()
   }
 
   // check if inputs are empty

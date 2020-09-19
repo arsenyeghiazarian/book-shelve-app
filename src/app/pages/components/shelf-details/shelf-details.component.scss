@@ -30,10 +30,21 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    h1 {
-      color: $grey;
-      font-size: 25px;
-      font-weight: 500;
+    .shelf-title-wrapper {
+      display: flex;
+      align-items: center;
+      .shelf-title {
+        color: $grey;
+        font-size: 25px;
+        font-weight: 500;
+        outline: none;
+        border: none;
+        margin-right: 15px;
+      }
+      .edit-btn {
+        width: 15px;
+        outline: none;
+      }
     }
     .main-btn {
       min-width: 108px;

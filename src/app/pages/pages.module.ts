@@ -5,6 +5,7 @@ import { ShelfDetailsComponent } from './components/shelf-details/shelf-details.
 import { FormsModule } from "@angular/forms";
 import { CoreModule } from "../core/core.module";
 import { RouterModule } from "@angular/router";
+import { AutoSizeInputModule } from "ngx-autosize-input";
 
 
 
@@ -16,7 +17,8 @@ import { RouterModule } from "@angular/router";
         CommonModule,
         FormsModule,
         CoreModule,
-        RouterModule
+        RouterModule,
+        AutoSizeInputModule
     ]
 })
 export class PagesModule { }

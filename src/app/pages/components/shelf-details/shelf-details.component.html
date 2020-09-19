@@ -21,7 +21,17 @@
   </div>
   <div class="content-container" [ngStyle]="{'padding-top': isFormOpen? '95px' : '25px'}">
     <div class="content-header">
-      <h1>{{selectedShelf?.name}}</h1>
+      <div class="shelf-title-wrapper">
+        <input type="text"
+               class="shelf-title"
+               #titleInput
+               [(ngModel)]="selectedShelf.name"
+               [readOnly]="!isEditActive"
+               AutoSizeInput>
+        <button class="edit-btn" (click)="editTitle(titleInput)">
+          <img src="'../../../../assets/img/{{isEditActive? 'check-solid' : 'pen-solid'}}.svg" alt="">
+        </button>
+      </div>
       <button class="main-btn" (click)="isFormOpen = !isFormOpen">{{!isFormOpen? 'Add Books' : 'Close'}}</button>
     </div>
     <div class="content">

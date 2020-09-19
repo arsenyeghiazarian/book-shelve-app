@@ -32,8 +32,7 @@ import { BookCardComponent } from './components/book-card/book-card.component';
     HeaderComponent,
     SideBarComponent,
     BookCardComponent
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  ]
 })
 export class CoreModule {
 }
