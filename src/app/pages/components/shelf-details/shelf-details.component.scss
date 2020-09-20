@@ -62,3 +62,19 @@ h3 {
   margin-top: 100px;
   width: 100%;
 }
+
+.main-btn.remove {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 9px 0;
+  font-size: 13px;
+  img {
+    height: 11px;
+    margin-right: 5px;
+  }
+  span {
+    line-height: 1;
+  }
+}

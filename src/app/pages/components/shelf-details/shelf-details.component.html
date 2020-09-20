@@ -40,7 +40,10 @@
         *ngFor="let book of selectedShelf['books']; let i = index"
         [bookDetails]="book"
         [index]="i">
-
+        <button class="main-btn white remove" (click)="deleteBook(selectedShelf['books'], i)">
+          <img src="./assets/img/trash-solid.svg" alt="trash">
+          <span>Remove</span>
+        </button>
       </app-book-card>
     </div>
   </div>
