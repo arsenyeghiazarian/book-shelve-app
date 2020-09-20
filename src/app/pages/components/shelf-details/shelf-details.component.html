@@ -38,8 +38,9 @@
       <h3 *ngIf="selectedShelf && !selectedShelf['books'].length">There are no books in this shelf</h3>
       <app-book-card
         *ngFor="let book of selectedShelf['books']; let i = index"
-        [bookDetails]="book"
-        [index]="i">
+        [bookTitle]="book?.title"
+        [bookAuthor]="book?.name"
+        [bookCover]="book?.image">
         <button class="main-btn white remove" (click)="deleteBook(selectedShelf['books'], i)">
           <img src="./assets/img/trash-solid.svg" alt="trash">
           <span>Remove</span>

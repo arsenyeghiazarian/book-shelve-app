@@ -46,7 +46,7 @@
         }
       }
       &.shelves-list {
-        height: 250px;
+        max-height: 250px;
         overflow-y: auto;
       }
     }

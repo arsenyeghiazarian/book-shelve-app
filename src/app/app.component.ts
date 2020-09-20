@@ -11,7 +11,10 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     if(!localStorage.hasOwnProperty('app-data')) {
       localStorage.setItem('app-data', JSON.stringify(
-        { shelves: [] }
+        {
+                shelves: [],
+                addedBooks: {}
+              }
       ))
     }
   }

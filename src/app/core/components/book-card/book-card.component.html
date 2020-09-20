@@ -1,9 +1,9 @@
 <div class="card-container">
   <div class="info-wrapper">
-    <img src="{{bookDetails['image']}}" alt="book-cover">
+    <img src="{{bookCover}}" alt="book-cover">
     <div class="book-info">
-      <p class="title">{{bookDetails['title']}}</p>
-      <p class="author-name">{{bookDetails['name']}}</p>
+      <p class="title" *ngIf="bookTitle">{{bookTitle}}</p>
+      <p class="author-name" *ngIf="bookAuthor">{{bookAuthor}}</p>
     </div>
   </div>
   <div class="btn-wrapper">

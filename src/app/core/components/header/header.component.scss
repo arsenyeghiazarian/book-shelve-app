@@ -94,15 +94,13 @@
   padding: 5px;
 }
 
-::ng-deep {
-  ngx-spinner {
-    .la-ball-clip-rotate.la-2x,
-    .la-ball-clip-rotate.la-2x > div {
-      width: 20px !important;
-      height: 20px !important;
-    }
-    .overlay {
-      border-radius: 25px;
-    }
+:host ::ng-deep {
+  .la-ball-clip-rotate.la-2x,
+  .la-ball-clip-rotate.la-2x > div {
+    width: 20px !important;
+    height: 20px !important;
+  }
+  .overlay {
+    border-radius: 25px;
   }
 }

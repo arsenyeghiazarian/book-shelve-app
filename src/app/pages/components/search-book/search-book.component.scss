@@ -1,0 +1,62 @@
+@import "../../../../assets/variables/colors";
+
+.container {
+  .input-wrapper {
+    max-width: 350px;
+    margin: 40px auto;
+    .input-style {
+      max-width: 350px;
+      width: 100%;
+      border-radius: 25px;
+      height: 40px;
+    }
+  }
+  .book-wrapper {
+    padding: 0 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .add-book-wrapper {
+      position: relative;
+      .main-btn {
+        width: 100%;
+        margin-top: 10px;
+      }
+      .main-btn.white.checked {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+          max-height: 15px;
+        }
+        &:hover {
+          background-color: #fff;
+        }
+      }
+      .dropdown {
+        position: absolute;
+        width: 100%;
+        background-color: #fff;
+        border: 1px solid $light-grey;
+        border-radius: 2px;
+        max-height: 125px;
+        overflow-y: auto;
+        margin-top: 3px;
+        z-index: 100;
+        li {
+          padding: 5px 10px;
+          font-size: 13px;
+          font-weight: 300;
+          color: $grey;
+          border-bottom: 1px solid $light-grey;
+          &:hover {
+            background-color: #f7f7f7;
+          }
+          &:last-child {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
+}

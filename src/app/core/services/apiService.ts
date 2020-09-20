@@ -5,10 +5,11 @@ import { UUID } from 'uuid-generator-ts';
   providedIn: 'root'
 })
 export class ApiService {
-  uuid = new UUID();
-  proxyURL = "https://cors-anywhere.herokuapp.com/";
+  private uuid = new UUID();
+  private proxyURL = "https://cors-anywhere.herokuapp.com/";
   // get data form local storage
-  data = JSON.parse(localStorage.getItem('app-data'));
+  private data = JSON.parse(localStorage.getItem('app-data'));
+  private addedBooks = this.data['addedBooks'];
 
   constructor() {}
 
@@ -38,8 +39,9 @@ export class ApiService {
   }
 
   // functionality to add a book for a given shelve.
-  addBook(shelve: object, book: object) {
-    shelve['books'].push(book)
+  addBook(shelf: object, book: object) {
+    shelf['books'].push(book)
+
     this.postData()
   }
 

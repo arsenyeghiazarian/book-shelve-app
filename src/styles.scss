@@ -98,3 +98,28 @@ input[type=number] {
   margin-left: 250px;
   position: relative;
 }
+
+h3 {
+  text-align: center;
+  font-size: 38px;
+  color: $grey;
+  margin-top: 100px;
+  width: 100%;
+}
+
+.pagination {
+  width: 100%;
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  .ngx-pagination {
+    li a {
+      color: $grey;
+      border-radius: 2px;
+    }
+    .current {
+      border-radius: 2px;
+      background-color: $primary-green;
+    }
+  }
+}

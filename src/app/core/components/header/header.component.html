@@ -12,12 +12,14 @@
       type = "ball-clip-rotate"
       [fullScreen] = "false">
     </ngx-spinner>
-    <input type="text"
-           class="search-input"
-           name="search-input"
-           [(ngModel)]="searchValue"
-           placeholder="Search books by Title, Author or ISBN"
-           (input)="onSearchInputChange()">
+    <ng-container *ngIf="routerUrl !== '/search'">
+      <input type="text"
+             class="search-input"
+             name="search-input"
+             [(ngModel)]="searchValue"
+             placeholder="Search books by Title, Author or ISBN"
+             (input)="onSearchInputChange()">
+    </ng-container>
     <div class="result" *ngIf="searchResult && showResult">
       <div class="result-wrapper">
         <div class="close-btn">

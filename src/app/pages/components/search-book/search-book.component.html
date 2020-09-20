@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="input-wrapper">
+    <input type="text"
+           name="search-input"
+           class="input-style"
+           [(ngModel)]="searchValue"
+           (input)="onSearchInputChange()"
+           placeholder="Search books by Title, Author or ISBN">
+  </div>
+  <div>
+    <h3 *ngIf="result && !result['books'].length">There is no any result</h3>
+    <div class="book-wrapper" *ngIf="result">
+      <app-book-card [bookCover]="book?.image"
+                     [bookTitle]="book?.title"
+                     *ngFor="let book of result['books'] | paginate:
+        { itemsPerPage: 10, currentPage: currentPage, totalItems: result['total'] }; let i = index">
+        <div class="add-book-wrapper">
+          <button class="main-btn" (click)="dropDown.hidden = !dropDown.hidden">Add to Shelf</button>
+          <div class="dropdown" #dropDown [hidden]="true">
+            <ul>
+              <li *ngFor="let shelf of data['shelves']" (click)="addBook(book, shelf, dropDown)">{{shelf?.name}}</li>
+            </ul>
+          </div>
+        </div>
+      </app-book-card>
+    </div>
+    <div class="pagination" *ngIf="result && result['books'].length">
+      <pagination-controls (pageChange)="changePage($event)"></pagination-controls>
+    </div>
+  </div>
+  <ngx-spinner
+    bdColor="rgba(0, 0, 0, 0.8)"
+    size="medium"
+    color="#32b77a"
+    type="pacman"
+    [fullScreen]="true">
+    <p style="color: white"> Loading... </p>
+  </ngx-spinner>
+</div>
+
