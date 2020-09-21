@@ -4,14 +4,14 @@ import * as debounce from 'lodash/debounce'
 
 import { ApiService } from "../../services/apiService";
 import { NgxSpinnerService } from "ngx-spinner";
-import { NavigationEnd, Router } from "@angular/router";
+import { NavigationEnd, NavigationStart, Router } from "@angular/router";
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit{
+export class HeaderComponent implements OnInit {
   public searchValue: string;
   public searchResult: object;
   public showResult: boolean;
@@ -21,11 +21,14 @@ export class HeaderComponent implements OnInit{
     private apiService: ApiService,
     private spinner: NgxSpinnerService,
     private router: Router) {
-      router.events.subscribe(event => {
-        if (event instanceof NavigationEnd) {
-          this.routerUrl = event.url
-        }
-      })
+    router.events.subscribe(event => {
+      if(event instanceof NavigationEnd) {
+        this.routerUrl = event.url
+      }
+      if(event instanceof NavigationStart) {
+        this.showResult = false;
+      }
+    })
   }
 
   private debouncedFetchCall = debounce(() => this.fetchCall(), 1000, {});
@@ -36,7 +39,7 @@ export class HeaderComponent implements OnInit{
 
   // functionality for search on input key press
   onSearchInputChange() {
-    if (this.searchValue.length) {
+    if(this.searchValue.length) {
       this.debouncedFetchCall()
     }
   }
@@ -57,7 +60,7 @@ export class HeaderComponent implements OnInit{
   }
 
   navigateTo() {
-    this.showResult = false;
+    this.searchValue = '';
     this.router.navigate(['/search', {value: this.searchValue}])
   }
 }

@@ -19,7 +19,7 @@
     <p class="section-title">Shelves</p>
     <ul class="section-list shelves-list">
       <li *ngIf="!data['shelves'].length">no shelves</li>
-      <li class="nav-item"  *ngFor="let shelf of data['shelves']; let i = index">
+      <li class="nav-item" *ngFor="let shelf of data['shelves']; let i = index">
         <a routerLink="shelf-details/{{shelf?.id}}">
           <img src="../../../../assets/img/list-alt-regular.svg" alt="list">
           <span>{{shelf?.name}}</span>
@@ -35,7 +35,7 @@
                   [ngStyle]="{'opacity': !shelfName?.length ? .5 : 1}"
                   (click)="addShelf()">Add
           </button>
-          <button (click)="createBtnActive = true" class="close-btn">
+          <button (click)="createBtnActive = true; shelfName = ''" class="close-btn">
             <img src="assets/img/times-solid.svg" alt="close">
           </button>
         </div>

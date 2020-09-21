@@ -28,7 +28,6 @@ export class SearchBookComponent implements OnInit {
 
   ngOnInit(): void {
     this.getData()
-    console.log(this.route.snapshot)
     if(this.route.snapshot.params.hasOwnProperty('value')) {
       this.searchValue = this.route.snapshot.params.value;
       this.fetchCall(1)
@@ -53,7 +52,7 @@ export class SearchBookComponent implements OnInit {
 
   // functionality for search input key press
   onSearchInputChange() {
-    if (this.searchValue.length) {
+    if(this.searchValue.length) {
       this.debouncedFetchCall()
     }
   }
