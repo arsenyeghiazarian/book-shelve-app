@@ -6,8 +6,6 @@ import { NgxSpinnerService } from "ngx-spinner";
 import { UUID } from "uuid-generator-ts";
 import * as debounce from 'lodash/debounce'
 
-
-
 @Component({
   selector: 'app-search-book',
   templateUrl: './search-book.component.html',
@@ -32,6 +30,16 @@ export class SearchBookComponent implements OnInit {
 
   getData() {
     this.data = this.apiService.getData()
+  }
+
+  filterShelves(isbn) {
+    this.getData()
+    return this.data['shelves'].filter(shelf => {
+      if(this.data['savedBooks'].hasOwnProperty(isbn)) {
+        return !this.data['savedBooks'][isbn].includes(shelf.id)
+      }
+      return true
+    })
   }
 
   private debouncedFetchCall = debounce(() => this.fetchCall(1), 1000, {});
@@ -72,6 +80,6 @@ export class SearchBookComponent implements OnInit {
       isbn: book.isbn13
     }
     this.apiService.addBook(shelf, obj);
-    dropdown.hidden = true;
+    dropdown.hidden = true
   }
 }

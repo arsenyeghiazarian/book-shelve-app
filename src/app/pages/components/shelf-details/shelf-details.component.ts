@@ -68,8 +68,8 @@ export class ShelfDetailsComponent implements OnInit {
     titleInput.focus()
   }
 
-  deleteBook(books, i) {
-    this.apiService.deleteBook(books, i)
+  deleteBook(shelf: object, book: object, i: number) {
+    this.apiService.deleteBook(shelf, book,  i)
   }
 
   // check if inputs are empty

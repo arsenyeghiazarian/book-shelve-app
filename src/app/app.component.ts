@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
       localStorage.setItem('app-data', JSON.stringify(
         {
                 shelves: [],
-                addedBooks: {}
+                savedBooks: {}
               }
       ))
     }

@@ -9,7 +9,7 @@ export class ApiService {
   private proxyURL = "https://cors-anywhere.herokuapp.com/";
   // get data form local storage
   private data = JSON.parse(localStorage.getItem('app-data'));
-  private addedBooks = this.data['addedBooks'];
+  private savedBooks = this.data['savedBooks'];
 
   constructor() {}
 
@@ -31,17 +31,20 @@ export class ApiService {
   }
 
   // functionality to delete book form a given array of books by it's id.
-  deleteBook(books: [], index: number) {
-    books?.forEach((el, i) => {
-      if (i === index) books.splice(i, 1)
-    })
+  deleteBook(shelf: object, book: object, index: number) {
+    shelf['books'].splice(index, 1)
+    const indexOfShelfToDelete = this.savedBooks[book['isbn']].indexOf(shelf['id']);
+    this.savedBooks[book['isbn']].splice(indexOfShelfToDelete, 1)
+    if (!this.savedBooks[book['isbn']].length) delete this.savedBooks[book['isbn']]
     this.postData()
   }
 
   // functionality to add a book for a given shelve.
   addBook(shelf: object, book: object) {
     shelf['books'].push(book)
-
+    if(!this.savedBooks.hasOwnProperty(book['isbn'])) {
+      this.savedBooks[book['isbn']] = [shelf['id']]
+    } else this.savedBooks[book['isbn']].push(shelf['id'])
     this.postData()
   }
 

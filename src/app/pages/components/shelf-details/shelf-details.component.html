@@ -41,7 +41,7 @@
         [bookTitle]="book?.title"
         [bookAuthor]="book?.name"
         [bookCover]="book?.image">
-        <button class="main-btn white remove" (click)="deleteBook(selectedShelf['books'], i)">
+        <button class="main-btn white remove" (click)="deleteBook(selectedShelf,book, i)">
           <img src="./assets/img/trash-solid.svg" alt="trash">
           <span>Remove</span>
         </button>

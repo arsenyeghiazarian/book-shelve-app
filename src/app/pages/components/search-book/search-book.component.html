@@ -15,10 +15,20 @@
                      *ngFor="let book of result['books'] | paginate:
         { itemsPerPage: 10, currentPage: currentPage, totalItems: result['total'] }; let i = index">
         <div class="add-book-wrapper">
-          <button class="main-btn" (click)="dropDown.hidden = !dropDown.hidden">Add to Shelf</button>
+          <button class="main-btn"
+                  *ngIf="filterShelves(book['isbn13']).length"
+                  (click)="dropDown.hidden = !dropDown.hidden">
+            Add to Shelf
+          </button>
+          <div *ngIf="!filterShelves(book['isbn13']).length" class="main-btn white checked">
+            <img src="assets/img/check-solid.svg" alt="check">
+          </div>
           <div class="dropdown" #dropDown [hidden]="true">
             <ul>
-              <li *ngFor="let shelf of data['shelves']" (click)="addBook(book, shelf, dropDown)">{{shelf?.name}}</li>
+              <li *ngFor="let shelf of filterShelves(book['isbn13'])"
+                  (click)="addBook(book, shelf, dropDown)">
+                {{shelf?.name}}
+              </li>
             </ul>
           </div>
         </div>
