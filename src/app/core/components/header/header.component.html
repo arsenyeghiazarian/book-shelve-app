@@ -4,7 +4,7 @@
       <img src="./assets/img/logo.svg" alt="logo">
     </a>
   </div>
-  <div class="input-wrapper">
+  <div class="input-wrapper" *ngIf="!routerUrl?.includes('search')">
     <ngx-spinner
       bdColor = "rgba(0,0,0,0.7)"
       size = "medium"
@@ -12,14 +12,12 @@
       type = "ball-clip-rotate"
       [fullScreen] = "false">
     </ngx-spinner>
-    <ng-container *ngIf="routerUrl !== '/search'">
-      <input type="text"
-             class="search-input"
-             name="search-input"
-             [(ngModel)]="searchValue"
-             placeholder="Search books by Title, Author or ISBN"
-             (input)="onSearchInputChange()">
-    </ng-container>
+    <input type="text"
+           class="search-input"
+           name="search-input"
+           [(ngModel)]="searchValue"
+           placeholder="Search books by Title, Author or ISBN"
+           (input)="onSearchInputChange()">
     <div class="result" *ngIf="searchResult && showResult">
       <div class="result-wrapper">
         <div class="close-btn">
@@ -42,7 +40,7 @@
             </li>
           </ul>
           <div class="more-btn">
-            <a routerLink="/">See more results</a>
+            <a (click)="navigateTo()">See more results</a>
           </div>
         </div>
       </div>

@@ -29,11 +29,16 @@
     <div class="form-container">
       <div class="form-wrapper" [class.show]="createBtnActive === false">
         <input type="text" #shelfInput [(ngModel)]="shelfName" (keydown.enter)="addShelf()">
-        <button class="main-btn green"
-                [disabled]="!shelfName?.length"
-                [ngStyle]="{'opacity': !shelfName?.length ? .5 : 1}"
-                (click)="addShelf()">Add
-        </button>
+        <div class="btn-wrapper">
+          <button class="main-btn green"
+                  [disabled]="!shelfName?.length"
+                  [ngStyle]="{'opacity': !shelfName?.length ? .5 : 1}"
+                  (click)="addShelf()">Add
+          </button>
+          <button (click)="createBtnActive = true" class="close-btn">
+            <img src="assets/img/times-solid.svg" alt="close">
+          </button>
+        </div>
       </div>
       <button class="main-btn green"
               *ngIf="createBtnActive"

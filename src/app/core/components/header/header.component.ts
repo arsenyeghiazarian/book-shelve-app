@@ -55,4 +55,9 @@ export class HeaderComponent implements OnInit{
       console.log(err)
     })
   }
+
+  navigateTo() {
+    this.showResult = false;
+    this.router.navigate(['/search', {value: this.searchValue}])
+  }
 }

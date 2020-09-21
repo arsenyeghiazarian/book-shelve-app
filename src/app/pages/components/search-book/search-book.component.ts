@@ -5,6 +5,7 @@ import { NgxSpinnerService } from "ngx-spinner";
 
 import { UUID } from "uuid-generator-ts";
 import * as debounce from 'lodash/debounce'
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-search-book',
@@ -21,11 +22,17 @@ export class SearchBookComponent implements OnInit {
 
   constructor(
     public apiService: ApiService,
-    private spinner: NgxSpinnerService) {
+    private spinner: NgxSpinnerService,
+    private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
     this.getData()
+    console.log(this.route.snapshot)
+    if(this.route.snapshot.params.hasOwnProperty('value')) {
+      this.searchValue = this.route.snapshot.params.value;
+      this.fetchCall(1)
+    }
   }
 
   getData() {

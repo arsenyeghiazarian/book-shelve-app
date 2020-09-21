@@ -86,8 +86,19 @@
       padding: 5px;
       outline: none;
     }
-    .main-btn  {
+    .btn-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       margin-top: 10px;
+      .close-btn {
+        outline: none;
+        height: 13px;
+        img {
+          width: 13px;
+          height: 13px;
+        }
+      }
     }
   }
 }
