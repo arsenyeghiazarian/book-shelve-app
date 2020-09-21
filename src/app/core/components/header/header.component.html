@@ -1,11 +1,12 @@
 <div class="header-wrapper">
   <div class="logo">
-    <a href="/">
+    <a routerLink="dashboard">
       <img src="./assets/img/logo.svg" alt="logo">
     </a>
   </div>
   <div class="input-wrapper" *ngIf="!routerUrl?.includes('search')">
     <ngx-spinner
+      *ngIf="searchValue?.length"
       bdColor="rgba(0,0,0,0.7)"
       size="medium"
       color="#32b77a"

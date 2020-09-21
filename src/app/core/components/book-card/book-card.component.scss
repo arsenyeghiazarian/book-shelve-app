@@ -9,6 +9,7 @@
   transition: box-shadow .2s;
   margin-right: 15px;
   margin-bottom: 10px;
+  min-height: 255px;
   &:hover {
     box-shadow: 0 0 10px rgba(130, 130, 130, 0.25);
   }

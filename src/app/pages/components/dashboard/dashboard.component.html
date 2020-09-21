@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="content" *ngIf="result">
+    <h1>New Books</h1>
+    <div class="book-wrapper">
+      <app-book-card
+        *ngFor="let book of result['books']"
+        [bookTitle]="book?.title"
+        [bookAuthor]="book?.subtitle"
+        [bookCover]="book?.image">
+
+      </app-book-card>
+    </div>
+  </div>
+</div>
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="medium"
+  color="#32b77a"
+  type="pacman"
+  [fullScreen]="true">
+  <p style="color: white"> Loading... </p>
+</ngx-spinner>

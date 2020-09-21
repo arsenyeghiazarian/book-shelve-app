@@ -1,0 +1,11 @@
+.content {
+  padding: 25px;
+  .book-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  h1 {
+    margin-bottom: 20px;
+  }
+}

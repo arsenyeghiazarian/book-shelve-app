@@ -68,4 +68,8 @@ export class ApiService {
   searchBook(query, page) {
     return fetch(this.proxyURL + 'https://api.itbook.store/1.0/search/' + query + '/' + page)
   }
+
+  get(url) {
+    return fetch(this.proxyURL + url)
+  }
 }
