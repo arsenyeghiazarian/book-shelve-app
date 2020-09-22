@@ -27,6 +27,7 @@ export class HeaderComponent implements OnInit {
       }
       if(event instanceof NavigationStart) {
         this.showResult = false;
+        this.searchValue = ''
       }
     })
   }
@@ -60,7 +61,7 @@ export class HeaderComponent implements OnInit {
   }
 
   navigateTo() {
-    this.searchValue = '';
     this.router.navigate(['/search', {value: this.searchValue}])
+    this.searchValue = '';
   }
 }

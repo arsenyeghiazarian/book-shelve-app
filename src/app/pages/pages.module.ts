@@ -11,12 +11,14 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { ShelfDetailsComponent } from './components/shelf-details/shelf-details.component';
 import { SearchBookComponent } from "./components/search-book/search-book.component";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
+import { BookDetailsComponent } from './components/book-details/book-details.component';
 
 @NgModule({
   declarations: [
     ShelfDetailsComponent,
     SearchBookComponent,
-    DashboardComponent
+    DashboardComponent,
+    BookDetailsComponent
   ],
   imports: [
     CommonModule,

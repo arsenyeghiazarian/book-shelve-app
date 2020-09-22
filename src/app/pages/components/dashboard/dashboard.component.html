@@ -5,6 +5,7 @@
       <app-book-card
         *ngFor="let book of result['books']"
         [bookTitle]="book?.title"
+        [bookIsbn]="book?.isbn13"
         [bookAuthor]="book?.subtitle"
         [bookCover]="book?.image">
 
@@ -13,6 +14,7 @@
   </div>
 </div>
 <ngx-spinner
+  *ngIf="!result"
   bdColor="rgba(0, 0, 0, 0.8)"
   size="medium"
   color="#32b77a"

@@ -40,6 +40,7 @@
         *ngFor="let book of selectedShelf['books']; let i = index"
         [bookTitle]="book?.title"
         [bookAuthor]="book?.name"
+        [bookIsbn]="book?.isbn"
         [bookCover]="book?.image">
         <button class="main-btn white remove" (click)="deleteBook(selectedShelf,book, i)">
           <img src="./assets/img/trash-solid.svg" alt="trash">

@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="content" *ngIf="data">
+    <div>
+      <div class="img-wrapper">
+        <img [src]="data['image']" alt="book-cover">
+      </div>
+      <div class="book-info">
+        <div class="text-style">
+          <p>Title: </p>
+          <span>{{data['title']}}</span>
+        </div>
+        <div class="text-style">
+          <p>Author: </p>
+          <span>{{data['authors']}}</span>
+        </div>
+        <div class="text-style">
+          <p>Language: </p>
+          <span>{{data['language']}}</span>
+        </div>
+        <div class="text-style">
+          <p>Year: </p>
+          <span>{{data['year']}}</span>
+        </div>
+        <div class="text-style">
+          <p>Pages: </p>
+          <span>{{data['pages']}}</span>
+        </div>
+        <div class="text-style">
+          <p>ISBN: </p>
+          <span>{{data['isbn13']}}</span>
+        </div>
+        <div>
+          <a href="{{data['url']}}" target="_blank" class="main-btn" >Buy</a>
+        </div>
+      </div>
+    </div>
+    <div class="description text-style">
+      <p>Description: </p>
+      <span>{{data['desc']}}</span>
+    </div>
+  </div>
+</div>
+<ngx-spinner
+  *ngIf="!data"
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="medium"
+  color="#32b77a"
+  type="pacman"
+  [fullScreen]="true">
+  <p style="color: white"> Loading... </p>
+</ngx-spinner>

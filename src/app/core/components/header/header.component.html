@@ -22,7 +22,7 @@
     <div class="result" *ngIf="searchResult && showResult">
       <div class="result-wrapper">
         <div class="close-btn">
-          <button (click)="showResult = false">
+          <button (click)="showResult = false; searchValue = ''">
             <img src="../../../../assets/img/close.svg" alt="close">
           </button>
         </div>
@@ -30,6 +30,7 @@
         <div *ngIf="searchResult['books'].length">
           <ul>
             <li class="result-item"
+                routerLink="/details/{{book['isbn13']}}"
                 *ngFor="let book of searchResult['books'].slice(0, 5)">
               <div class="info-wrapper">
                 <img src="{{book['image']}}" alt="book">

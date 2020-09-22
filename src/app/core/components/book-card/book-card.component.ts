@@ -9,6 +9,7 @@ export class BookCardComponent {
   @Input() bookCover: string;
   @Input() bookTitle: string;
   @Input() bookAuthor: string;
+  @Input() bookIsbn: string;
 
   constructor() { }
 }

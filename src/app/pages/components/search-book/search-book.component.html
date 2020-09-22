@@ -11,6 +11,7 @@
     <h3 *ngIf="result && !result['books'].length">There is no any result</h3>
     <div class="book-wrapper" *ngIf="result">
       <app-book-card [bookCover]="book?.image"
+                     [bookIsbn]="book?.isbn13"
                      [bookTitle]="book?.title"
                      *ngFor="let book of result['books'] | paginate:
         { itemsPerPage: 10, currentPage: currentPage, totalItems: result['total'] }; let i = index">

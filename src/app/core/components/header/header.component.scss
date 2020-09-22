@@ -54,6 +54,11 @@
           border-bottom: 1px solid $light-grey;
           padding-bottom: 5px;
           margin-bottom: 5px;
+          background-color: #ffffff;
+          cursor: pointer;
+          &:hover {
+            background-color: #f7f7f7;
+          }
           .info-wrapper {
             display: flex;
             img {
