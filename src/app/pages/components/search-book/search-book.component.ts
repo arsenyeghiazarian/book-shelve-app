@@ -48,6 +48,12 @@ export class SearchBookComponent implements OnInit {
     })
   }
 
+  toggleBtn(e,dropdown) {
+    dropdown.hidden = !dropdown.hidden
+    e.stopPropagation()
+    e.preventDefault()
+  }
+
   private debouncedFetchCall = debounce(() => this.fetchCall(1), 1000, {});
 
   // functionality for search input key press

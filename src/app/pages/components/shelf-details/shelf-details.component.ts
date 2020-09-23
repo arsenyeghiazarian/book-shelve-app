@@ -68,7 +68,8 @@ export class ShelfDetailsComponent implements OnInit {
     titleInput.focus()
   }
 
-  deleteBook(shelf: object, book: object, i: number) {
+  deleteBook(shelf: object, book: object, i: number, event) {
+    event.stopPropagation()
     this.apiService.deleteBook(shelf, book,  i)
   }
 

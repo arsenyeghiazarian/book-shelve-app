@@ -42,7 +42,7 @@
         [bookAuthor]="book?.name"
         [bookIsbn]="book?.isbn"
         [bookCover]="book?.image">
-        <button class="main-btn white remove" (click)="deleteBook(selectedShelf,book, i)">
+        <button class="main-btn white remove" (click)="deleteBook(selectedShelf,book, i, $event)">
           <img src="./assets/img/trash-solid.svg" alt="trash">
           <span>Remove</span>
         </button>

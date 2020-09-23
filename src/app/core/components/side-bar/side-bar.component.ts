@@ -9,7 +9,7 @@ import { ApiService } from "../../services/apiService";
 })
 export class SideBarComponent implements OnInit {
   public shelfName: string;
-  public data: object;
+  public data: any;
   public createBtnActive = true;
 
   constructor(public apiService: ApiService) { }

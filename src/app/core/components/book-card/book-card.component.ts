@@ -12,4 +12,5 @@ export class BookCardComponent {
   @Input() bookIsbn: string;
 
   constructor() { }
+
 }

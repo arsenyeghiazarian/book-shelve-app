@@ -36,7 +36,6 @@ export class BookDetailsComponent implements OnInit {
       return response.json()
     }).then(result => {
       this.data = result;
-      console.log(this.data)
       this.spinner.hide();
     }).catch(err => {
       console.log(err)

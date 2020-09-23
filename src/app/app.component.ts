@@ -9,7 +9,8 @@ export class AppComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    if(!localStorage.hasOwnProperty('app-data')) {
+
+    if(!localStorage.getItem('app-data')) {
       localStorage.setItem('app-data', JSON.stringify(
         {
                 shelves: [],

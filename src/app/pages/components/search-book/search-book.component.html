@@ -18,7 +18,7 @@
         <div class="add-book-wrapper">
           <button class="main-btn"
                   *ngIf="filterShelves(book['isbn13']).length"
-                  (click)="dropDown.hidden = !dropDown.hidden">
+                  (click)="toggleBtn($event, dropDown)">
             Add to Shelf
           </button>
           <div *ngIf="!filterShelves(book['isbn13']).length" class="main-btn white checked">

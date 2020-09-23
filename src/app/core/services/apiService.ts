@@ -9,7 +9,7 @@ export class ApiService {
   private proxyURL = "https://cors-anywhere.herokuapp.com/";
   // get data form local storage
   private data = JSON.parse(localStorage.getItem('app-data'));
-  private savedBooks = this.data['savedBooks'];
+  private savedBooks = this.data?.savedBooks;
 
   constructor() {}
 
