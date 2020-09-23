@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ApiService } from "../../../core/services/apiService";
-import { UUID } from 'uuid-generator-ts';
+import { ApiService } from "../../core/services/apiService";
 import { NgxSpinnerService } from "ngx-spinner";
 
 
