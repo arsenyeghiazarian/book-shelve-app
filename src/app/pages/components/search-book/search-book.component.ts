@@ -83,7 +83,9 @@ export class SearchBookComponent implements OnInit {
   }
 
   // functionality to add searched book to selected shelve
-  addBook(book, shelf, dropdown) {
+  addBook(book, shelf, dropdown, e) {
+    e.stopPropagation()
+    e.preventDefault()
     const obj = {
       id: this.uuid.getDashFreeUUID(),
       title: book.title,

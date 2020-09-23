@@ -23,16 +23,16 @@ export class ApiService {
   }
 
   // functionality to delete shelve by it's id
-  deleteShelve(id) {
-    this.data['shelves'].forEach((el, i) => {
-      if (el.id === id) this.data['shelves'].splice(i, 1)
-    })
+  deleteShelf(index) {
+    this.data['shelves'].splice(index, 1)
     this.postData()
   }
 
   // functionality to delete book form a given array of books by it's id.
   deleteBook(shelf: object, book: object, index: number) {
     shelf['books'].splice(index, 1)
+
+    // delete shelf id from "savedBooks" in local storage
     const indexOfShelfToDelete = this.savedBooks[book['isbn']].indexOf(shelf['id']);
     this.savedBooks[book['isbn']].splice(indexOfShelfToDelete, 1)
     if (!this.savedBooks[book['isbn']].length) delete this.savedBooks[book['isbn']]
@@ -42,6 +42,8 @@ export class ApiService {
   // functionality to add a book for a given shelve.
   addBook(shelf: object, book: object) {
     shelf['books'].push(book)
+
+    // add saved book isbn and shelf id to local storage
     if(!this.savedBooks.hasOwnProperty(book['isbn'])) {
       this.savedBooks[book['isbn']] = [shelf['id']]
     } else this.savedBooks[book['isbn']].push(shelf['id'])

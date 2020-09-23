@@ -24,6 +24,9 @@
           <img src="../../../../assets/img/list-alt-regular.svg" alt="list">
           <span>{{shelf?.name}}</span>
         </a>
+        <button (click)="deleteShelf(i)" class="close-btn">
+          <img src="assets/img/times-solid.svg" alt="close">
+        </button>
       </li>
     </ul>
     <div class="form-container">

@@ -17,17 +17,17 @@
         { itemsPerPage: 10, currentPage: currentPage, totalItems: result['total'] }; let i = index">
         <div class="add-book-wrapper">
           <button class="main-btn"
-                  *ngIf="filterShelves(book['isbn13']).length"
+                  *ngIf="this.data?.shelves.length && filterShelves(book['isbn13']).length"
                   (click)="toggleBtn($event, dropDown)">
             Add to Shelf
           </button>
-          <div *ngIf="!filterShelves(book['isbn13']).length" class="main-btn white checked">
+          <div *ngIf="this.data?.shelves.length && !filterShelves(book['isbn13']).length" class="main-btn white checked">
             <img src="../../../assets/img/check-solid.svg" alt="check">
           </div>
           <div class="dropdown" #dropDown [hidden]="true">
             <ul>
               <li *ngFor="let shelf of filterShelves(book['isbn13'])"
-                  (click)="addBook(book, shelf, dropDown)">
+                  (click)="addBook(book, shelf, dropDown, $event)">
                 {{shelf?.name}}
               </li>
             </ul>

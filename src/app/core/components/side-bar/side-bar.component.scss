@@ -26,6 +26,9 @@
         margin-bottom: 10px;
         font-size: 15px;
         margin-left: -10px;
+        display: flex;
+        justify-content: space-between;
+        align-self: center;
         a {
           display: flex;
           align-items: center;
@@ -37,6 +40,10 @@
             line-height: 1;
             margin-left: 5px;
           }
+        }
+        button {
+          width: 8px;
+          height: 13px;
         }
         &:hover {
           background-color: #e7e7e7;

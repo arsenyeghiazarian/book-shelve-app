@@ -18,12 +18,12 @@ export class SideBarComponent implements OnInit {
     this.data = this.apiService.getData();
   }
 
-  createShelf(input) {
+  public createShelf(input) {
     this.createBtnActive = false;
     input.focus()
   }
 
-  addShelf() {
+  public addShelf() {
     const uuid = new UUID()
     const obj: any = {
       id: uuid.getDashFreeUUID(),
@@ -33,5 +33,9 @@ export class SideBarComponent implements OnInit {
     this.apiService.addShelve(obj)
     this.shelfName = '';
     this.createBtnActive = true;
+  }
+
+  public deleteShelf(i) {
+    this.apiService.deleteShelf(i)
   }
 }
